@@ -14,6 +14,18 @@ export default mongoConnUrl
 
 ```
 
+- Set JWT Secret
+
+```sh
+$ cd jwt-demo
+$ touch source/keys/jwt_secret.ts
+
+# Update source/keys/jwt_secret.ts
+export const jwtTokenSecret = <JWT_TOKEN_SECRET>
+export const jwtRefreshSecret = <REFRESH_TOKEN_SECRET>
+
+```
+
 - Install Dependencies & Run App
 ```sh
 $ cd jwt-demo

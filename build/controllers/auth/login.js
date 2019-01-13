@@ -40,8 +40,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var User_1 = __importDefault(require("../../models/User"));
+var generate_jwt_1 = require("../../helperFuncs/generate_jwt");
 var loginUser = function (request, response) { return __awaiter(_this, void 0, void 0, function () {
-    var context, findByEmailOpts, foundUser;
+    var context, findByEmailOpts, foundUser, token, refreshToken;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -60,9 +61,14 @@ var loginUser = function (request, response) { return __awaiter(_this, void 0, v
                 foundUser = _a.sent();
                 //No Time for Bcrypt.compare
                 if (foundUser[0].password === request.body.password) {
+                    token = generate_jwt_1.createToken(foundUser[0]._id);
+                    refreshToken = generate_jwt_1.createRefreshToken(foundUser[0]._id);
                     context.success = true;
-                    context.message = "Auth Success";
-                    context.data = "generate_token_now";
+                    context.message = "Auth Successful";
+                    context.data = {
+                        token: token,
+                        refreshToken: refreshToken
+                    };
                     return [2 /*return*/, response.status(200).json(context)];
                 }
                 else {
