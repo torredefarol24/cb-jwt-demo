@@ -9,7 +9,7 @@ const connectCallback = () => console.log("Mongo DB Connection Successful")
 const errorCallback = (error: any) => console.error(`Mongo Conn Error ${error}`)
 
 const connectToDB = mongoose.connect(mongo_connection_url, connOptions)
-    .then(() => connectCallback)
+    .then(connectCallback)
     .catch(err => errorCallback(err))
 
 
