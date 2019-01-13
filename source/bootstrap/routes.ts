@@ -1,9 +1,9 @@
-import authRouter from '../routes/auth_routes'
-import userRouter from '../routes/user_routes'
+import routes from '../routes'
 
 const routeSetup = (app: any) => {
-    app.use("/auth", authRouter)
-    app.use("/users", userRouter)
+    app.use("/auth", routes.auth)
+    app.use("/users", routes.users)
+    app.use("/products", routes.products)
 }
 
 export default routeSetup

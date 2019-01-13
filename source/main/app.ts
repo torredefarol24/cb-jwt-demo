@@ -24,6 +24,7 @@ class JWTDemoApp {
     setupBodyParser(app: any) {
         bodyParserSetup(app)
     }
+
 }
 
 const jwtDemoApp = new JWTDemoApp()

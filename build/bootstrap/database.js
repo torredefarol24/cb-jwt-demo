@@ -8,8 +8,10 @@ var mongo_connection_str_1 = __importDefault(require("../keys/mongo_connection_s
 var connOptions = {
     useNewUrlParser: true
 };
+var connectCallback = function () { return console.log("Mongo DB Connection Successful"); };
+var errorCallback = function (error) { return console.error("Mongo Conn Error " + error); };
 var connectToDB = mongoose_1.default.connect(mongo_connection_str_1.default, connOptions)
-    .then(function () { return console.log("Mongo DB Connection Successful"); })
-    .catch(function (err) { return console.error("Mongo Conn Error " + err); });
+    .then(function () { return connectCallback; })
+    .catch(function (err) { return errorCallback(err); });
 exports.default = connectToDB;
 //# sourceMappingURL=database.js.map

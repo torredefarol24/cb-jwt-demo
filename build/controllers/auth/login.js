@@ -41,6 +41,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var User_1 = __importDefault(require("../../models/User"));
 var generate_jwt_1 = require("../../helperFuncs/generate_jwt");
+var redis_1 = __importDefault(require("../../bootstrap/redis"));
 var loginUser = function (request, response) { return __awaiter(_this, void 0, void 0, function () {
     var context, findByEmailOpts, foundUser, token, refreshToken;
     return __generator(this, function (_a) {
@@ -63,6 +64,7 @@ var loginUser = function (request, response) { return __awaiter(_this, void 0, v
                 if (foundUser[0].password === request.body.password) {
                     token = generate_jwt_1.createToken(foundUser[0]._id);
                     refreshToken = generate_jwt_1.createRefreshToken(foundUser[0]._id);
+                    redis_1.default.set("" + foundUser[0]._id, "" + token);
                     context.success = true;
                     context.message = "Auth Successful";
                     context.data = {

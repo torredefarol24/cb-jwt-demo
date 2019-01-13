@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import User from '../../models/User'
 import { createToken, createRefreshToken } from '../../helperFuncs/generate_jwt'
+import redisClient from '../../bootstrap/redis'
 
 const loginUser = async (request: Request, response: Response) => {
     var context: any = {
@@ -19,6 +20,8 @@ const loginUser = async (request: Request, response: Response) => {
     if (foundUser[0].password === request.body.password) {
         var token = createToken(foundUser[0]._id)
         var refreshToken = createRefreshToken(foundUser[0]._id)
+
+        redisClient.set(`${foundUser[0]._id}`, `${token}`)
 
         context.success = true
         context.message = "Auth Successful"

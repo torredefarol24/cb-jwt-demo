@@ -5,9 +5,12 @@ const connOptions = {
     useNewUrlParser: true
 }
 
+const connectCallback = () => console.log("Mongo DB Connection Successful")
+const errorCallback = (error: any) => console.error(`Mongo Conn Error ${error}`)
+
 const connectToDB = mongoose.connect(mongo_connection_url, connOptions)
-    .then(() => console.log("Mongo DB Connection Successful"))
-    .catch(err => console.error(`Mongo Conn Error ${err}`))
+    .then(() => connectCallback)
+    .catch(err => errorCallback(err))
 
 
 export default connectToDB
