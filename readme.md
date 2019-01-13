@@ -14,7 +14,7 @@ export default mongoConnUrl
 
 ```
 
-- Set JWT Secret
+- Set JWT Secrets
 
 ```sh
 $ cd jwt-demo
@@ -26,10 +26,11 @@ export const jwtRefreshSecret = <REFRESH_TOKEN_SECRET>
 
 ```
 
-- Install Dependencies & Run App
+- Install Dependencies, Build from Source, & Run App
 ```sh
 $ cd jwt-demo
 $ yarn install
+$ yarn build
 $ yarn start
 ```
 

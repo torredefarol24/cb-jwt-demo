@@ -37,7 +37,7 @@ const checkValidJWT = (request: Request, response: Response, next: NextFunction)
                 var currentToken = data
                 if (token === currentToken) next()
                 else {
-                    context.message = "Auth Failed / Expired Token"
+                    context.message = "Auth Failed / Revoked Token"
                     return response.status(401).json(context)
                 }
 
