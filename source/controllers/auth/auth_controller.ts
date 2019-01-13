@@ -1,4 +1,4 @@
-import loginUser from './login'
+import loginUser from '.'
 
 
 const authController = {

@@ -1,4 +1,4 @@
-import jwtDemoApp from './main/jwtDemo'
+import jwtDemoApp from './main/app'
 
 const app_port = process.env.PORT || 5000
 const listenCallback = console.log(`Listening on port ${app_port}`)
