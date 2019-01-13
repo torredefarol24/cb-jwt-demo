@@ -1,5 +1,17 @@
 import mongoose from 'mongoose'
 
+interface user_Base_Interface {
+    email: String,
+    password: String,
+    currentJWT: String
+}
+
+export interface user_Interface extends user_Base_Interface, mongoose.Document {
+
+}
+
+
+
 const userSchemaOptions = {
     email: {
         type: String,
@@ -11,9 +23,13 @@ const userSchemaOptions = {
     },
     currentJWT: {
         type: String,
-        required: true
+        default: null
     }
 }
 
-const userSchema = new mongoose.Schema(userSchemaOptions)
+const collectionOptions = {
+    collection: "user"
+}
+
+const userSchema = new mongoose.Schema(userSchemaOptions, collectionOptions)
 export default userSchema

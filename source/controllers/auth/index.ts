@@ -1,14 +1,8 @@
-import { Request, Response } from 'express'
+import loginUser from './login'
 
 
-const loginUser = (request: Request, response: Response) => {
-    var context: any = {
-        success: true,
-        message: "Login Successfull",
-        data: []
-    }
-
-    return response.status(200).json(context)
+const authController = {
+    login: loginUser
 }
 
-export default loginUser
+export default authController

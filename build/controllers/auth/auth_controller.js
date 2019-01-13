@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __importDefault(require("."));
+var login_1 = __importDefault(require("./login"));
 var authController = {
-    login: _1.default
+    login: login_1.default
 };
 exports.default = authController;
 //# sourceMappingURL=auth_controller.js.map

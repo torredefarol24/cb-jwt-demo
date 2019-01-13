@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import userSchema from '../schemas/User';
+import userSchema, { user_Interface } from '../schemas/User';
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model<user_Interface>('User', userSchema)
 export default User

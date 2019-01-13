@@ -15,9 +15,12 @@ var userSchemaOptions = {
     },
     currentJWT: {
         type: String,
-        required: true
+        default: null
     }
 };
-var userSchema = new mongoose_1.default.Schema(userSchemaOptions);
+var collectionOptions = {
+    collection: "user"
+};
+var userSchema = new mongoose_1.default.Schema(userSchemaOptions, collectionOptions);
 exports.default = userSchema;
 //# sourceMappingURL=User.js.map
