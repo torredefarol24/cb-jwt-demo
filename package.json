@@ -1,0 +1,17 @@
+{
+  "name": "jwt-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "license": "MIT",
+  "scripts": {
+    "watch-ts": "tsc -w",
+    "watch-js": "nodemon build/server.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "express": "^4.16.4",
+    "typescript": "^3.2.2"
+  }
+}
